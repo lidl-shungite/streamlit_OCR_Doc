@@ -1,6 +1,6 @@
 import streamlit as st
 #from Home import stream_line
-
+import os
 
 def stream_line(sentence):
     for word in sentence.split():
@@ -19,14 +19,11 @@ def document():
                                        "technologies"
                                        "across. Unfortunately, addition, subtraction, multiplication, and division are "
                                        "the only available operations for current version of the application."))
-    container.subheader("Key Features")
+    container.subheader("Technologies Utilized")
     container.write_stream(
         stream_line("**AI Integration**: PicCalcBot is developed using TensorFlow, a leading deep learning "
                     "framework, to incorporate artificial intelligence capabilities into its "
                     "calculation process."))
-    container.write_stream(
-        stream_line("**Simple Mathematics Operations**: Users can perform standard arithmetic calculations "
-                    "effortlessly, making PicCalcBot a handy tool for everyday mathematical tasks."))
     container.write_stream(
         stream_line("**React Native Frontend**: The frontend or UI of PicCalcBot is built using React Native, "
                     "providing a seamless and intuitive user experience across various mobile devices."))
@@ -44,7 +41,34 @@ def document():
                     "AI model.")
     )
     container.subheader("Dataset: :blue[Handwritten Digits and Operators]")
-    container.write_stream(stream_line(""))
+    container.write_stream(stream_line("The dataset used in this project is taken from Kaggle. It contains a total of "
+                                       "333,895 images, with 16 total classes and each class containing 20,868 images. "
+                                       "Of course, these 16 classes are numbers from 0 to 9, four mathematical operators"
+                                       " ( +, -, * is written as _, division is written as /) and finally two "
+                                       "parentheses ( written as ' [ ' and ' ] ' instead of ' ( ' and ' ) ' ) . "
+                                       "Each image has the same size or resolution of 28 x 28. "))
+    container.text('')
+    container.text('')
+    data_img = []
+    labels_lt = ['Division', 'Addition', 'Subtraction', 'Zero', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine',
+                 'Opened-Parenthesis', 'Closed-Parenthesis', 'Multiplication']
+    col1 = container.columns(4)
+    col2 = container.columns(4)
+    col3 = container.columns(4)
+    col4 = container.columns(4)
+    datadir = "./images"
+    for images in os.listdir(datadir):
+        data_img.append(images)
+    data_img = iter(data_img)
+    labels_lt = iter(labels_lt)
+    for rows in col1 + col2 + col3 + col4:
+        tile = rows.container(height=180, border=False)
+        tile.image(f'images/{next(data_img)}',width=75)
+        tile.markdown(next(labels_lt))
+    container.subheader('Building a Model')
+    container.write_stream(stream_line("Now, we'll talk about how we utilized Tensorflow to build the architecture of "
+                                       "a model. The Sequential model is built with "))
+
 
 
 document()
