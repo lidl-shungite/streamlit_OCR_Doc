@@ -67,7 +67,15 @@ def document():
         tile.markdown(next(labels_lt))
     container.subheader('Building a Model')
     container.write_stream(stream_line("Now, we'll talk about how we utilized Tensorflow to build the architecture of "
-                                       "a model. The Sequential model is built with "))
+                                       "a model. The Sequential model is built with a total of 11 layers ( 3 Convolution"
+                                       " 2D layers, 3 Max Pooling 2D layers, 1 Flatten layer, 1 Dropout layer, and "
+                                       "finally 3 Fully Connected Dense layers ). If you want to know more in detail "
+                                       "about these layers, I encourage you to check the official Tensorflow or Keras "
+                                       "documentation website. "))
+    container.write_stream(stream_line("The following is a diagram recreating the architecture of the model's hidden "
+                                       "layers. I hope the visualization helps you understand how the model is built."))
+    container.image('./model_architecture.png')
+    container.subheader()
 
 
 
