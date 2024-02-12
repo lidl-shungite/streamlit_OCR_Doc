@@ -75,7 +75,8 @@ def document():
     container.write_stream(stream_line("The following is a diagram recreating the architecture of the model's hidden "
                                        "layers. I hope the visualization helps you understand how the model is built."))
     container.image('./model_architecture.png')
-    container.subheader()
+    container.subheader("Testing of Model")
+    container.write_stream(stream_line(""))
 
 
 
