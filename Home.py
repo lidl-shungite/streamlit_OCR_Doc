@@ -10,7 +10,6 @@ def stream_line(sentence, sleep_time=0.02):
 
 def main():
     st.page_link("pages/Documentation.py", label='')
-    st.page_link("pages/User Manual.py", label='')
     st.header('Introducing :blue[PicCalcBot]:robot_face:: Your Handy Math Solver App!')
     container = st.container(border=False)
     container.write_stream(stream_line(
