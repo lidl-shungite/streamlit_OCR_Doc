@@ -22,7 +22,7 @@ def main():
     container.write_stream(stream_line('No more scratching your head over math homework. With PicCalcBot, you can say '
                                        'goodbye to math stress and hello to quick and accurate solutions.'))
     container.write_stream(
-        stream_line('So why wait? Download MathSnap now and let the math magic begin! Math class just '
+        stream_line('So why wait? Download PicCalcBot now and let the math magic begin! Math class just '
                     'got a whole lot cooler!'))
 
 
