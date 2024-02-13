@@ -1,10 +1,13 @@
 import streamlit as st
 #from Home import stream_line
 import os
+import time
+
 
 def stream_line(sentence):
     for word in sentence.split():
         yield word + " "
+        time.sleep(0.01)
 
 
 def document():
@@ -57,8 +60,8 @@ def document():
     container.text('')
     container.text('')
     data_img = []
-    labels_lt = ['Division', 'Addition', 'Subtraction', 'Zero', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine',
-                 'Opened-Parenthesis', 'Closed-Parenthesis', 'Multiplication']
+    labels_lt = ['Multiplication', 'Five', 'Seven', 'Two', 'Zero', 'Four', 'Subtraction', 'Close-Bracket', 'Nine', 'Three',
+                 'Eight', 'Division', 'Six', 'Open-Bracket', 'Addition']
     col1 = container.columns(4)
     col2 = container.columns(4)
     col3 = container.columns(4)
