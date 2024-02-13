@@ -30,6 +30,13 @@ def document():
     container.write_stream(
         stream_line("**Flask and OpenCV Backend**: The backend of PicCalcBot is powered by Flask, a lightweight and "
                     "versatile web framework, along with OpenCV (CV2) for image processing functionalities."))
+    container.write_stream(
+        stream_line("**Docker for Server Side**: Docker is used to ensure consistent, isolated, and portable "
+                    "development across different environments and platforms."))
+    ex = container.expander("See simple visual explanation on how Docker works", expanded=False)
+    ex.image("other_images/docker_meme.jpeg", width=200)
+    ex1 = container.expander("See explanation on interaction between Flask and Docker", expanded=False)
+    ex1.image("other_images/1_jB_sIv780kncRtm3gP6Krg-removebg-preview.png")
     container.divider()
     container.subheader("Getting Started")
     container.write_stream(
@@ -74,10 +81,39 @@ def document():
                                        "documentation website. "))
     container.write_stream(stream_line("The following is a diagram recreating the architecture of the model's hidden "
                                        "layers. I hope the visualization helps you understand how the model is built."))
-    container.image('./model_architecture.png')
+    container.image('other_images/model_architecture.png')
     container.subheader("Testing of Model")
-    container.write_stream(stream_line(""))
-
+    container.write_stream(stream_line("Now, we enter the phase of testing each class in the dataset. How this works is"
+                                       " by taking a 3000 samples of one class and take 200 samples from other classes."
+                                       "Down below is the confusion matrix showing how correct our model is on each "
+                                       "class."))
+    folders = [
+        "Zero",
+        "One",
+        "Two",
+        "Three",
+        "Four",
+        "Five",
+        "Six",
+        "Seven",
+        "Eight",
+        "Nine",
+        "Multiplication",
+        "Subtraction",
+        "Open-Bracket",
+        "Close-Bracket",
+        "Addition",
+        "Division"]
+    acc_scores = ["100","98.96","100","99.9","99.76","99.93","99.96","99.55","99.96","98.18","99.98","97.45","99.89",
+                  "98.46","98.76", "98.55"]
+    acc_s = dict(zip(folders, acc_scores))
+    cf_option = container.selectbox("",folders,index=None,placeholder="Select class of confusion matrix")
+    if cf_option is None:
+        container.write_stream(stream_line(f"You selected : :blue[{cf_option}]"))
+    elif cf_option in folders:
+        container.write_stream(stream_line(f"You selected : :blue[{cf_option}]"))
+        container.write_stream(stream_line(f"The model has an accuracy of  :blue[{acc_s[cf_option]}]% on :blue[{cf_option}] class."))
+        container.image(f"cf_images/{cf_option}.png")
 
 
 document()
