@@ -61,7 +61,7 @@ def document():
     container.text('')
     data_img = []
     labels_lt = ['Multiplication', 'Five', 'Seven', 'Two', 'Zero', 'Four', 'Subtraction', 'Close-Bracket', 'Nine', 'Three',
-                 'Eight', 'Division', 'Six', 'Open-Bracket', 'Addition']
+                 'Eight', 'One','Division', 'Six', 'Open-Bracket', 'Addition']
     col1 = container.columns(4)
     col2 = container.columns(4)
     col3 = container.columns(4)
