@@ -26,5 +26,7 @@ def main():
                     'got a whole lot cooler!'))
 
     container.image("other_images/phone_calc-removebg-preview.png")
+
+
 if __name__ == '__main__':
     main()
