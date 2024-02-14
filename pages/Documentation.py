@@ -111,9 +111,9 @@ def document():
 
     tab1, tab2 = container.tabs(["Epoch Accuracy", "Epoch Loss"])
     with tab1:
-        tab1.plotly_chart(create_plot(pd.read_csv("logs/accuracy.csv"), 'Accuracy'), theme="streamlit")
+        tab1.plotly_chart(create_plot(pd.read_csv("logs/accuracy.csv"), 'Accuracy'), theme="streamlit", use_container_width=True)
     with tab2:
-        tab2.plotly_chart(create_plot(pd.read_csv("logs/loss.csv"), 'Loss'), theme="streamlit")
+        tab2.plotly_chart(create_plot(pd.read_csv("logs/loss.csv"), 'Loss'), theme="streamlit", use_container_width=True)
     container.divider()
     container.text('')
     container.subheader("Testing of Model")
