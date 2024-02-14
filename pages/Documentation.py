@@ -38,8 +38,10 @@ def document():
                     "development across different environments and platforms."))
     ex = container.expander("See simple visual explanation on how Docker works", expanded=False)
     ex.image("other_images/docker_meme.jpeg", width=200)
-    ex1 = container.expander("See explanation on interaction between Flask and Docker", expanded=False)
+    ex1 = container.expander("See visual explanation on interaction between Flask and Docker", expanded=False)
     ex1.image("other_images/1_jB_sIv780kncRtm3gP6Krg-removebg-preview.png")
+    ex2 = container.expander("See visual explanation on how client-side and server-side operates", expanded=False)
+    ex2.image("other_images/client-server.png")
     container.divider()
     container.subheader("Getting Started")
     container.write_stream(
