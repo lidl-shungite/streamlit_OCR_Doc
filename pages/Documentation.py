@@ -84,12 +84,15 @@ def document():
     datadir = "./images"
     for images in os.listdir(datadir):
         data_img.append(images)
-    data_img = iter(data_img)
-    labels_lt = iter(labels_lt)
+
+    imge_list = [0,1,2,3,4,5,6,7,8,9,'Addition', 'bSubtraction', 'cMultiplication', 'Division','Open-Bracket', 'xClose-Bracket']
+
+    i = 0
     for rows in col1 + col2 + col3 + col4:
         tile = rows.container(height=180, border=False)
-        tile.image(f'images/{next(data_img)}', width=75)
-        tile.markdown(next(labels_lt))
+        tile.image(f'images/{imge_list[i]}.png', width=75)
+        tile.markdown(labels_lt[i])
+        i+=1
     container.divider()
     container.text('')
     container.subheader('Building a Model')
