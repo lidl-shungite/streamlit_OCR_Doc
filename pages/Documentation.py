@@ -28,7 +28,7 @@ def document():
                                        "calculator application designed to simplify mathematical operations using the "
                                        "power of artificial intelligence. PicCalcBot offers a user-friendly interface "
                                        "for performing basic arithmetic operations utilizing state-of-the-art "
-                                       "technologies"
+                                       "technologies "
                                        "across. Unfortunately, addition, subtraction, multiplication, and division are "
                                        "the only available operations for current version of the application."))
     container.divider()
@@ -75,9 +75,8 @@ def document():
     container.text('')
     container.text('')
     data_img = []
-    labels_lt = ['Multiplication', 'Five', 'Seven', 'Two', 'Zero', 'Four', 'Subtraction', 'Close-Bracket', 'Nine',
-                 'Three',
-                 'Eight', 'One', 'Division', 'Six', 'Open-Bracket', 'Addition']
+    labels_lt = ['Zero', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight',
+                 'Nine', 'Addition', 'Subtraction', 'Multiplication', 'Division', 'Open-Bracket', 'Close-Bracket']
     col1 = container.columns(4)
     col2 = container.columns(4)
     col3 = container.columns(4)
@@ -95,9 +94,9 @@ def document():
     container.text('')
     container.subheader('Building a Model')
     container.write_stream(stream_line("Now, we'll talk about how we utilized Tensorflow to build the architecture of "
-                                       "a model. The Sequential model is built with a total of 11 layers ( 3 Convolution"
-                                       " 2D layers, 3 Max Pooling 2D layers, 1 Flatten layer, 1 Dropout layer, and "
-                                       "finally 3 Fully Connected Dense layers ). If you want to know more in detail "
+                                       "a model. The CNN (Convolutional Neural Network) is built with a total of 13 layers ( 3 Convolution"
+                                       " 2D layers, 3 Max Pooling 2D layers, 1 Batch Normalization Layer, 1 Flatten layer, 1 Dropout layer, and "
+                                       "finally 4 Fully Connected Dense layers ). If you want to know more in detail "
                                        "about these layers, I encourage you to check the official Tensorflow or Keras "
                                        "documentation website. "))
     container.write_stream(stream_line("The following is a diagram recreating the architecture of the model's hidden "
