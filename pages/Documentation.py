@@ -12,9 +12,10 @@ def stream_line(sentence):
 
 
 def create_plot(df, mode):
-    fig = px.scatter(data_frame=df, x='Step', y=[f'Train {mode}', f'Validation {mode}'], hover_name='Step',
+    fig = px.line(data_frame=df, x='Step', y=[f'Train {mode}', f'Validation {mode}'], hover_name='Step',
                      labels={'Step': 'Steps', 'value': f'{mode}', 'variable': 'Dataset'},
                      color_discrete_map={f'Train {mode}': '#1f77b4', f'Validation {mode}': '#ff7f0e'})
+    fig.update_layout(xaxis=dict(showgrid=True), yaxis=dict(showgrid=True))
     return fig
 
 
@@ -107,9 +108,12 @@ def document():
     container.subheader("Training and Validating the Model")
     container.write_stream(stream_line("After building the model, we now commence to train and validate the model "
                                        "using the data. The data is split into 9-part training and 1-part validation, "
-                                       "meaning 90% of data is poured into training and 10% into validation."))
+                                       "meaning 90% of data is poured into training and 10% into validation. The following"
+                                       "are the two graphs representing the learning curve; one for the accuracy and the other"
+                                       "for the loss. The learning curve shows how our model's performance changes after each " 
+                                       "epoch. Here, loss(error) and accuracy are two metrics used to measure the performance."))
 
-    tab1, tab2 = container.tabs(["Epoch Accuracy", "Epoch Loss"])
+    tab1, tab2 = container.tabs(["Learning Curve ( :blue[Accuracy] )", "Learning Curve ( :blue[Loss] )"])
     with tab1:
         tab1.plotly_chart(create_plot(pd.read_csv("logs/accuracy.csv"), 'Accuracy'), theme="streamlit", use_container_width=True)
     with tab2:
@@ -119,7 +123,7 @@ def document():
     container.subheader("Testing of Model")
     container.write_stream(stream_line("Now, we enter the phase of testing each class in the dataset. How this works is"
                                        " by taking a 3000 samples of one class and take 200 samples from other classes."
-                                       "Down below is the confusion matrix showing how correct our model is on each "
+                                       " Down below is the confusion matrix showing how correct our model is on each "
                                        "class."))
     folders = [
         "Zero",
@@ -152,4 +156,5 @@ def document():
             stream_line(f"The model has an accuracy of  :blue[{acc_s[cf_option]}]% on :blue[{cf_option}] class."))
         container.image(f"cf_images/{cf_option}.png")
 
-document()
+if __name__ == '__main__':
+    document()
